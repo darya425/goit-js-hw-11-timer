@@ -1,0 +1,1 @@
+*{box-sizing:border-box}body{padding:50px;font-family:Roboto,sans-serif;letter-spacing:.03em;font-size:20px;line-height:1.72}.field,.timer{display:flex}.field{flex-direction:column;min-width:100px;margin:10px;padding:10px;background-color:#9acd32;border-radius:5px}.label,.value{display:inline-flex;justify-content:center}.value{font-weight:700;font-size:36px}
