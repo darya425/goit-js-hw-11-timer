@@ -53,4 +53,5 @@ function updateDaysFace ({ days, hours, mins, secs }) {  // вызывается
     secsLeft.textContent = `${secs}`;
 };
 
+
 window.addEventListener('load', timer.start.bind(timer));
