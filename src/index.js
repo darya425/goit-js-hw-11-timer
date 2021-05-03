@@ -1,5 +1,4 @@
 import './styles.css';
-// import './timer';
 
 const daysLeft = document.querySelector('[data-value="days"]');
 const hoursLeft = document.querySelector('[data-value="hours"]');
