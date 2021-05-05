@@ -11,6 +11,7 @@ class CountdownTimer {
     constructor({ selector, targetDate}) {
         this.selector = selector;
         this.targetDate = targetDate;
+        this.start();
     }
 
     start() {
@@ -20,10 +21,20 @@ class CountdownTimer {
             const currentDate = Date.now(); // текущее время
             const deltaTime = startDate - currentDate; // разница текущего и стартового
             const time = this.getDateComponents(deltaTime); // вызов функции индуских часов
+            const deadline = deltaTime < 0;
+
+            if (deadline) {
+                this.stop();
+                return;
+            }
 
             this.updateDaysFace(time);
           
         }, 1000);
+    }
+
+    stop() {
+        clearInterval(this.intervalId);
     }
 
     pad(value) { // функция превращения времени во время
@@ -31,9 +42,7 @@ class CountdownTimer {
     }
 
     getDateComponents(time) {
-        if (time < 0) {
-            clearInterval(intervalId);
-        };
+        
 
         const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
         const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
@@ -55,5 +64,3 @@ const timer = new CountdownTimer({
     selector: '#timer-1',
     targetDate: new Date('Jul 17, 2021')
 });
-
-window.addEventListener('load', timer.start.bind(timer));
