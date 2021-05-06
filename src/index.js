@@ -16,8 +16,7 @@ class CountdownTimer {
 
     start() {
         const startDate = this.targetDate; // стартовое время
-
-        this.intervalId = setInterval(() => { // интервал времени (секунда), выполняется:
+        const updateClock = () => {
             const currentDate = Date.now(); // текущее время
             const deltaTime = startDate - currentDate; // разница текущего и стартового
             const time = this.getDateComponents(deltaTime); // вызов функции индуских часов
@@ -29,8 +28,10 @@ class CountdownTimer {
             }
 
             this.updateDaysFace(time);
-          
-        }, 1000);
+        }
+
+        qwerty();
+        this.intervalId = setInterval(updateClock, 1000);
     }
 
     stop() {
@@ -42,7 +43,6 @@ class CountdownTimer {
     }
 
     getDateComponents(time) {
-        
 
         const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
         const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
