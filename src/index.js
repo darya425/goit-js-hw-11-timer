@@ -30,7 +30,7 @@ class CountdownTimer {
             this.updateDaysFace(time);
         }
 
-        qwerty();
+        updateClock();
         this.intervalId = setInterval(updateClock, 1000);
     }
 
